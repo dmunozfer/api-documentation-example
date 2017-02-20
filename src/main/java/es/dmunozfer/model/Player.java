@@ -29,7 +29,7 @@ public class Player {
     private Long id;
 
     private String name;
-    private String location;
+    private String birthPlace;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     @DateTimeFormat(iso = ISO.DATE)

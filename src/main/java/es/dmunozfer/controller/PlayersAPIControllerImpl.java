@@ -14,12 +14,8 @@ import java.util.Collection;
 @RequestMapping("/api/players")
 public class PlayersAPIControllerImpl implements PlayersAPI {
 
-    PersonRepository personRepository;
-
     @Autowired
-    public PlayersAPIControllerImpl(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
+    PersonRepository personRepository;
 
     @Override
     @PostMapping
