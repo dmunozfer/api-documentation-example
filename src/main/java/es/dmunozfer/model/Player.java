@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Person {
+public class Player {
 
     @Id
     @GeneratedValue
