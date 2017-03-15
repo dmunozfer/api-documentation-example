@@ -1,4 +1,4 @@
-= Servicio Players - Guía de uso
+= API Players - v{project-version}
 David Muñoz Fernández;
 :doctype: book
 :icons: font
@@ -7,13 +7,24 @@ David Muñoz Fernández;
 :toclevels: 4
 :sectlinks:
 
-[introduccion]
+
+[introdduccion]
 = Introducción
 Documentación de la API Players, servicio para la gestión de jugadores.
 
-Artefacto: *{final-name}*.
+====
+.Versión
+- Versión: *{project-version}*.
+- Fecha: *{docdatetime}*.
+- Proyecto: *{project-name}*.
+- Artefacto: *{final-name}*.
 
-Versión: *{project-version}*.
+.Información Git
+- Commit id: *{git-commit-id}*.
+- Usuario: *{git-username}*.
+- Rama: *{git-branch}*.
+- Url origen: *{git-remote-origin-url}*.
+====
 
 [[overview]]
 = Overview

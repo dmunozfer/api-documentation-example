@@ -73,6 +73,29 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>${project.build.directory}/classes/git.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- Asciidoctor -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
@@ -86,7 +109,7 @@
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <backend>html</backend>
+                            <backend>html5</backend>
                             <doctype>book</doctype>
                             <attributes>
                                 <snippets>${snippetsDirectory}</snippets>
@@ -96,8 +119,14 @@
                 </executions>
                 <configuration>
                     <attributes>
+                        <project-name>${project.name}</project-name>
                         <final-name>${project.build.finalName}</final-name>
                         <project-version>${project.version}</project-version>
+
+                        <git-username>${git.commit.user.name}</git-username>
+                        <git-branch>${git.branch}</git-branch>
+                        <git-commit-id>${git.commit.id}</git-commit-id>
+                        <git-remote-origin-url>${git.remote.origin.url}</git-remote-origin-url>
                     </attributes>
                 </configuration>
             </plugin>
@@ -122,6 +151,25 @@
                                     </directory>
                                 </resource>
                             </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <property environment="env"/>
+                                <echoproperties/>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
